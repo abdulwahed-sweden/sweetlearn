@@ -1,122 +1,344 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
+/* ============================================
+   SweetLearn Design System - Color Palette
+   ============================================ */
+
 @theme inline {
+  /* Core Variables */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
+  
+  /* Component Variables */
   --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  /* Chart Colors */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  
+  /* Sidebar Variables */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Border Radius System */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
 }
 
+/* ============================================
+   Light Theme - SweetLearn Brand Colors
+   ============================================ */
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  /* Base Configuration */
+  --radius: 0.75rem;
+  
+  /* Brand Colors - Using your preferred palette */
+  --primary: 245 53% 41%;              /* #38319D - Brand Purple */
+  --primary-foreground: 0 0% 100%;     /* Pure White */
+  
+  --success: 143 69% 75%;              /* #B7EDC7 - Soft Success Green */
+  --success-foreground: 143 85% 15%;   /* Deep Green for text */
+  
+  /* Supporting Colors */
+  --secondary: 245 25% 96%;            /* Very Light Purple */
+  --secondary-foreground: 245 53% 25%; /* Dark Purple for text */
+  
+  --accent: 200 100% 88%;              /* Soft Blue Accent */
+  --accent-foreground: 200 100% 20%;   /* Dark Blue for text */
+  
+  --warning: 45 96% 72%;               /* Warm Yellow */
+  --warning-foreground: 45 96% 20%;    /* Dark Yellow for text */
+  
+  --destructive: 0 72% 70%;            /* Soft Red */
+  --destructive-foreground: 0 0% 100%; /* White text */
+  
+  /* Neutral System */
+  --background: 0 0% 100%;             /* Pure White */
+  --foreground: 240 10% 4%;            /* Near Black */
+  
+  --card: 0 0% 100%;                   /* White Cards */
+  --card-foreground: 240 10% 4%;       /* Dark text on cards */
+  
+  --popover: 0 0% 100%;                /* White Popovers */
+  --popover-foreground: 240 10% 4%;    /* Dark text in popovers */
+  
+  --muted: 245 20% 97%;                /* Light Purple Muted */
+  --muted-foreground: 240 4% 46%;      /* Muted text */
+  
+  /* Interactive Elements */
+  --border: 245 20% 88%;               /* Light Purple Borders */
+  --input: 245 20% 94%;                /* Input Backgrounds */
+  --ring: 245 53% 41%;                 /* Focus rings (brand color) */
+  
+  /* Chart Colors - Harmonious Palette */
+  --chart-1: 245 53% 41%;              /* Brand Purple */
+  --chart-2: 143 69% 55%;              /* Success Green */
+  --chart-3: 200 100% 60%;             /* Accent Blue */
+  --chart-4: 45 96% 55%;               /* Warning Yellow */
+  --chart-5: 315 45% 65%;              /* Complementary Pink */
+  
+  /* Sidebar System */
+  --sidebar: 245 25% 98%;              /* Very Light Purple */
+  --sidebar-foreground: 240 10% 4%;    /* Dark text */
+  --sidebar-primary: 245 53% 41%;      /* Brand Purple */
+  --sidebar-primary-foreground: 0 0% 100%; /* White text */
+  --sidebar-accent: 245 20% 94%;       /* Light Purple Accent */
+  --sidebar-accent-foreground: 245 53% 25%; /* Dark Purple text */
+  --sidebar-border: 245 20% 88%;       /* Light Purple Border */
+  --sidebar-ring: 245 53% 41%;         /* Brand Purple Ring */
 }
 
+/* ============================================
+   Dark Theme - Enhanced for SweetLearn
+   ============================================ */
 .dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  /* Brand Colors - Adjusted for dark mode */
+  --primary: 245 53% 65%;              /* Lighter Purple for visibility */
+  --primary-foreground: 245 30% 8%;    /* Very dark purple */
+  
+  --success: 143 55% 55%;              /* Balanced Green */
+  --success-foreground: 0 0% 100%;     /* White text */
+  
+  /* Supporting Colors */
+  --secondary: 245 20% 15%;            /* Dark Purple */
+  --secondary-foreground: 0 0% 98%;    /* Near white */
+  
+  --accent: 200 80% 45%;               /* Rich Blue */
+  --accent-foreground: 0 0% 98%;       /* Near white */
+  
+  --warning: 45 85% 60%;               /* Balanced Yellow */
+  --warning-foreground: 45 30% 8%;     /* Dark yellow background */
+  
+  --destructive: 0 65% 60%;            /* Balanced Red */
+  --destructive-foreground: 0 0% 98%;  /* Near white */
+  
+  /* Dark Neutral System */
+  --background: 245 30% 6%;            /* Very Dark Purple */
+  --foreground: 0 0% 98%;              /* Near White */
+  
+  --card: 245 25% 10%;                 /* Dark Purple Cards */
+  --card-foreground: 0 0% 98%;         /* Near white text */
+  
+  --popover: 245 25% 10%;              /* Dark Purple Popovers */
+  --popover-foreground: 0 0% 98%;      /* Near white text */
+  
+  --muted: 245 20% 18%;                /* Dark Muted */
+  --muted-foreground: 240 5% 65%;      /* Light muted text */
+  
+  /* Dark Interactive Elements */
+  --border: 245 15% 20%;               /* Dark borders */
+  --input: 245 15% 15%;                /* Dark inputs */
+  --ring: 245 53% 65%;                 /* Lighter ring for visibility */
+  
+  /* Dark Chart Colors */
+  --chart-1: 245 53% 65%;              /* Lighter Purple */
+  --chart-2: 143 55% 65%;              /* Lighter Green */
+  --chart-3: 200 80% 70%;              /* Lighter Blue */
+  --chart-4: 45 85% 70%;               /* Lighter Yellow */
+  --chart-5: 315 45% 75%;              /* Lighter Pink */
+  
+  /* Dark Sidebar */
+  --sidebar: 245 25% 8%;               /* Very Dark Purple */
+  --sidebar-foreground: 0 0% 98%;      /* Near white */
+  --sidebar-primary: 245 53% 65%;      /* Lighter Purple */
+  --sidebar-primary-foreground: 245 30% 8%; /* Very dark background */
+  --sidebar-accent: 245 20% 15%;       /* Dark Accent */
+  --sidebar-accent-foreground: 0 0% 98%; /* Near white */
+  --sidebar-border: 245 15% 20%;       /* Dark border */
+  --sidebar-ring: 245 53% 65%;         /* Lighter ring */
 }
 
+/* ============================================
+   Custom Utility Classes
+   ============================================ */
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
+  
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  /* Brand Color Utilities */
+  .text-brand {
+    color: hsl(var(--primary));
+  }
+  
+  .bg-brand {
+    background-color: hsl(var(--primary));
+  }
+  
+  .border-brand {
+    border-color: hsl(var(--primary));
+  }
+  
+  /* Success Color Utilities */
+  .text-success {
+    color: hsl(var(--success-foreground));
+  }
+  
+  .bg-success {
+    background-color: hsl(var(--success));
+  }
+  
+  .border-success {
+    border-color: hsl(var(--success));
+  }
+  
+  /* Warning Color Utilities */
+  .text-warning {
+    color: hsl(var(--warning-foreground));
+  }
+  
+  .bg-warning {
+    background-color: hsl(var(--warning));
+  }
+  
+  .border-warning {
+    border-color: hsl(var(--warning));
+  }
+  
+  /* Custom Gradient Backgrounds */
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, 
+      hsl(var(--primary)) 0%, 
+      hsl(var(--success)) 100%);
+  }
+  
+  .bg-gradient-soft {
+    background: linear-gradient(135deg, 
+      hsl(var(--secondary)) 0%, 
+      hsl(var(--accent)) 100%);
+  }
+  
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, 
+      hsl(var(--primary)) 0%, 
+      hsl(245 40% 55%) 50%,
+      hsl(var(--success)) 100%);
+  }
+  
+  .bg-gradient-sunset {
+    background: linear-gradient(135deg, 
+      hsl(var(--warning)) 0%, 
+      hsl(var(--primary)) 100%);
+  }
+  
+  /* Enhanced Shadow System */
+  .shadow-brand {
+    box-shadow: 0 4px 14px 0 hsla(var(--primary), 0.15);
+  }
+  
+  .shadow-brand-lg {
+    box-shadow: 0 10px 25px 0 hsla(var(--primary), 0.2);
+  }
+  
+  .shadow-success {
+    box-shadow: 0 4px 14px 0 hsla(var(--success), 0.25);
+  }
+  
+  .shadow-glow {
+    box-shadow: 0 0 20px hsla(var(--primary), 0.3);
+  }
+  
+  /* Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+  
+  /* Glass Morphism Effect */
+  .glass {
+    background: hsla(var(--background), 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsla(var(--border), 0.2);
+  }
+  
+  .glass-dark {
+    background: hsla(var(--card), 0.6);
+    backdrop-filter: blur(15px);
+    border: 1px solid hsla(var(--border), 0.1);
+  }
+}
+
+/* ============================================
+   Custom Animations
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  * {
+    color: black !important;
+    background: white !important;
   }
 }
